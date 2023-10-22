@@ -32,7 +32,7 @@ func Data(ip string, port string, data string, timeout time.Duration) error {
 
 	conn, err := net.DialTimeout("tcp4", tcpAddr.String(), timeout)
 	if err != nil {
-		return err
+		return err // dial tcp4 127.0.0.1:9100: connectex: No connection could be made because the target machine actively refused it.
 	}
 	defer conn.Close()
 
