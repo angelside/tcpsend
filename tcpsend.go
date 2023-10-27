@@ -24,14 +24,13 @@ if err != nil {
 }
 */
 
-func Data(ip string, port string, data string, timeout time.Duration) error {
+func Data(ip, port, data string, timeout time.Duration) error {
 	tcpAddr, err := net.ResolveTCPAddr("tcp", net.JoinHostPort(ip, port))
 	if err != nil {
 		return err // Error during address resolution
 	}
 
 	conn, err := net.DialTimeout("tcp4", tcpAddr.String(), timeout)
-	_ = err
 	if err != nil {
 		return err // No connection could be made because the target machine actively refused it.
 	}
