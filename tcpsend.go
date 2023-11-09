@@ -27,12 +27,12 @@ if err != nil {
 func Data(ip, port, data string, timeout time.Duration) error {
 	tcpAddr, err := net.ResolveTCPAddr("tcp", net.JoinHostPort(ip, port))
 	if err != nil {
-		return err // Error during address resolution
+		return fmt.Errorf("error resolving TCP address: %w", err)
 	}
 
 	conn, err := net.DialTimeout("tcp4", tcpAddr.String(), timeout)
 	if err != nil {
-		return err // No connection could be made because the target machine actively refused it.
+		return fmt.Errorf("failed to open connection: %w", err)
 	}
 	defer conn.Close()
 

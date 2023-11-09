@@ -55,7 +55,6 @@ linters:
     - goerr113
     #- gofmt
     #- gofumpt
-    - goimports
     - gomnd
     - gomoddirectives
     - gosec
