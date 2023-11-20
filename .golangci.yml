@@ -72,7 +72,6 @@ linters:
     - nilnil
     - nlreturn
     - nolintlint
-    - nakedret
     - nonamedreturns
     - nosprintfhostport
     - prealloc
