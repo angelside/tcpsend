@@ -16,7 +16,7 @@ port := "9100"
 data := "~DATA~"
 timeout := 1
 
-err := tcpsend.Data(ip, port, data, time.Second*timeout)
+err := tcpsend.Run(ip, port, data, time.Second*timeout)
 if err != nil {
 	fmt.Println(err)
 } else {
@@ -24,7 +24,7 @@ if err != nil {
 }
 */
 
-func Data(ip, port, data string, timeout time.Duration) error {
+func Run(ip, port, data string, timeout time.Duration) error {
 	tcpAddr, err := net.ResolveTCPAddr("tcp", net.JoinHostPort(ip, port))
 	if err != nil {
 		return fmt.Errorf("error resolving TCP address: %w", err)
